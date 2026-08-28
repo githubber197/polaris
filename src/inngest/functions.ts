@@ -36,6 +36,11 @@ export const demoGenerate = inngest.createFunction(
       return await generateText({
         model: google('gemini-3.7-flash'),
         prompt: finalPrompt,
+        telemetry: {
+            isEnabled: true,
+            recordInputs: true,
+            recordOutputs: true,
+        },
       });
     })
   },
