@@ -15,6 +15,7 @@
     "@clerk/nextjs": "^6.36.5",
     "@clerk/themes": "^2.4.57",
     "@hookform/resolvers": "^5.9.1",
+    "@mendable/firecrawl-js": "^4.37.0",
     "@shadcn/react": "^0.3.0",
     "ai": "^7.0.83",
     "class-variance-authority": "^0.7.1",
