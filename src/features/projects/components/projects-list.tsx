@@ -6,7 +6,7 @@ import { Spinner } from "@/components/ui/spinner";
 
 import { Doc } from "../../../../convex/_generated/dataModel";
 
-import { useProjectsPartial } from "./hooks/use-projects";
+import { useProjectsPartial } from "../hooks/use-projects";
 import { AlertCircleIcon, ArrowRightIcon, GlobeIcon, Loader2Icon } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
