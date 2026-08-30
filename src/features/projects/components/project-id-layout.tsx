@@ -40,7 +40,6 @@ export const ProjectIdLayout = ({
                 </Allotment>
                 
             </div>
-            {children}
         </div>
     );
 };

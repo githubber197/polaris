@@ -18,7 +18,7 @@ import { Kbd } from "@/components/ui/kbd";
 
 
 import { ProjectsList } from "./projects-list";
-import { useCreateproject } from "./hooks/use-projects";
+import { useCreateproject } from "../hooks/use-projects";
 import { ProjectCommandDialog } from "./projects-command-dialog";
 
 

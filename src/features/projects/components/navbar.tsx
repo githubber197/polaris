@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Id } from "../../../../convex/_generated/dataModel";
-import { useProject, useRenameProject } from "./hooks/use-projects";
+import { useProject, useRenameProject } from "../hooks/use-projects";
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
