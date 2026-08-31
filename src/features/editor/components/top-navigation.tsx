@@ -31,8 +31,17 @@ const Tab = ({
 
     return (
         <div
+            role="tab"
+            aria-selected={isActive}
+            tabIndex={isActive ? 0: -1}
             onClick={() => setActiveTab(fileId)}
             onDoubleClick={() => openFile(fileId, { pinned: true })}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveTab(fileId);
+                }
+            }}
             className={cn(
                 "flex items-center gap-2 h-8.75 pl-2 pr-1.5 cursor-pointer text-muted-foreground group border-y border-x border-transparent hover:bg-accent/30",
                 isActive && "bg-background text-foreground border-x-border border-b-background -mb-px drop-shadow",
@@ -51,6 +60,7 @@ const Tab = ({
                 {fileName}
             </span>
             <button
+                tabIndex={-1}
                 onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();

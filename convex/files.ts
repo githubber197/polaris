@@ -81,10 +81,12 @@ export const getFilePath = query({
         let currentId: Id<"files"> | undefined = args.id;
 
         while (currentId) {
-            const file = (await ctx.db.get("files", currentId)) as 
+            const currentFile = (await ctx.db.get("files", currentId)) as 
                 | Doc<"files">
                 | undefined;
-            if (!file) break;
+            if (!currentFile) break;
+
+            if (currentFile.projectId !== file.projectId) break;
             
             path.unshift({ _id: file._id, name: file.name });
             currentId = file.parentId;
