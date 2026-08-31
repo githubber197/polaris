@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { useFile, useUpdateFile } from "@/features/projects/hooks/use-files";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Id } from "../../../../convex/_generated/dataModel"
 import { useEditor } from "../hooks/use-editor";
 import { FileBreadcrumbs } from "./file-breadcrumbs";
@@ -20,6 +20,15 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) =>
 
     const isActiveFileBinary = activeFile && activeFile.storageId;
     const isActiveFileText = activeFile && !activeFile.storageId;
+
+    // Cleanup pending debounced updates on unmount or file change
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, [activeTabId]);
 
     return (
         <div className="h-full flex flex-col">
@@ -39,7 +48,7 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) =>
                         />
                     </div>
                 )}
-                {activeFile && (
+                {isActiveFileText && (
                     <CodeEditor 
                         key={activeFile._id}
                         fileName={activeFile.name}
