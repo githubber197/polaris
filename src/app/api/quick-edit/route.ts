@@ -48,13 +48,13 @@ export async function POST (request: Request) {
         if (!userId) {
             return NextResponse.json(
                 { error: "Unauthorized" },
-                { status: 400 }
+                { status: 401 }
             );
         }
 
         if (!selectedCode) {
             return NextResponse.json(
-                { error: "Selected code is requested" },
+                { error: "Selected code is required" },
                 { status: 400 }
             );
         }
