@@ -88,8 +88,8 @@ export const getFilePath = query({
 
             if (currentFile.projectId !== file.projectId) break;
             
-            path.unshift({ _id: file._id, name: file.name });
-            currentId = file.parentId;
+            path.unshift({ _id: file._id, name: currentFile.name });
+            currentId = currentFile.parentId;
         }
 
         return path;

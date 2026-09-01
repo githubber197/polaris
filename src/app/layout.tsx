@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Mono } from "next/font/google";
 
 import { Providers } from "@/components/providers";
 
+import "allotment/dist/style.css";
 import "./globals.css";
 import { Toaster } from "sonner";
 
