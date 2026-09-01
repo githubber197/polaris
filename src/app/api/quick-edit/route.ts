@@ -1,4 +1,5 @@
 import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
 import { generateText, Output } from "ai";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -102,7 +103,7 @@ export async function POST (request: Request) {
             .replace("{documentation}", documentationContext);
 
         const { output } = await generateText({
-            model: google("gemini-3.7-flash"),
+            model: openai("openai/gpt-oss-120b"),
             output: Output.object({ schema: quickEditSchema }),
             prompt,
         });

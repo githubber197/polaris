@@ -1,9 +1,9 @@
 import { generateText } from "ai";
-import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
 
 export async function POST() {
     const response = await generateText({
-        model: google('gemini-3.7-flash'),
+        model: openai('openai/gpt-oss-120b'),
         prompt: 'Write a vegetarian lasagna recipe for 4 people.', telemetry: {
             isEnabled: true,
             recordInputs: true,

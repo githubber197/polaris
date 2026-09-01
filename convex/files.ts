@@ -181,7 +181,7 @@ export const createFile = mutation({
                 content: args.content,
                 type: "file",
                 parentId: args.parentId,
-                updatesAt: now,
+                updatedAt: now,
             });
 
             await ctx.db.patch("projects", args.projectId, {
@@ -233,7 +233,7 @@ export const createFolder = mutation({
                 name: args.name,
                 type: "folder",
                 parentId: args.parentId,
-                updatesAt: now,
+                updatedAt: now,
             });
 
             await ctx.db.patch("projects", args.projectId, {
@@ -294,7 +294,7 @@ export const renameFile = mutation({
         //update the file's name
         await ctx.db.patch("files", args.id, {
             name: args.newName,
-            updatesAt: now,
+            updatedAt: now,
         });
 
 
@@ -395,7 +395,7 @@ export const updateFile = mutation({
 
         await ctx.db.patch("files", args.id, {
             content: args.content,
-            updatesAt: now,
+            updatedAt: now,
         });
 
         await ctx.db.patch("projects", file.projectId, {
