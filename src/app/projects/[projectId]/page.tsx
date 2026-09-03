@@ -4,14 +4,14 @@ import { Id } from "../../../../convex/_generated/dataModel";
 const ProjectIdpage = async ({
     params,
 } : {
-    params: Promise<{ projectId: Id<"projects"> }>
+    params: Promise<{ projectId: string }>
 }) => {
 
     const { projectId } = await params;
 
     return (
         <ProjectIdView
-            projectId = {projectId}
+            projectId = {projectId as Id<"projects">}
         />
     );
 }
